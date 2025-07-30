@@ -114,9 +114,6 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Penilaian Bobot Laptop"/>
-          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -347,7 +344,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Data Supplier">
+                <TitledBorder title="Data Laptop">
                   <Font PropertyName="font" name="SansSerif" size="12" style="1"/>
                   <Color PropertyName="color" blue="c0" green="ed" red="ff" type="rgb"/>
                 </TitledBorder>

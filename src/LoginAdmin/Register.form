@@ -305,7 +305,7 @@
               <Color blue="0" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Seleksi Supplier Pada PT ARJUNA LESTARI UTAMA"/>
+            <Property name="text" type="java.lang.String" value="Seleksi Laptop Pada PT ARJUNA LESTARI UTAMA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="logo">

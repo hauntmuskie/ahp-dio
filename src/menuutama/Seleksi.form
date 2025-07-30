@@ -239,7 +239,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="- Ranking diurutkan berdasarkan hasil penilaian terbesar sampai terkecil supplier"/>
+                <Property name="text" type="java.lang.String" value="- Ranking diurutkan berdasarkan hasil penilaian terbesar sampai terkecil laptop"/>
               </Properties>
             </Component>
           </SubComponents>

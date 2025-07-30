@@ -1,6 +1,6 @@
 
 package menuutama;
-import java.awt.Color;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,12 +14,12 @@ import koneksi.Koneksi;
  * @author Siti Mawaddah
  */
 public class DataSupplier extends javax.swing.JPanel {
-    //koneksi mysql 
+    // koneksi mysql
     private Connection conn = new Koneksi().connect();
     private DialogTambahData dialog = new DialogTambahData(null, true);
     public DefaultTableModel tabmode;
     private String noId;
-    
+
     /**
      * Creates new form NewJPanel
      */
@@ -27,56 +27,62 @@ public class DataSupplier extends javax.swing.JPanel {
         initComponents();
         updateDataTabel();
     }
-    
+
     /**
      * mendapatkan Data Tabel dari database
      */
-    protected void updateDataTabel(){
+    protected void updateDataTabel() {
         Object[] Baris = {
-            "Id Supplier",
-            "Nama Supplier",
-            "Email",
-            "No Telepon",
-            "Alamat",
-            "Kualitas",
-            "Harga",
-            "Layanan",
-            "Ketepatan Pengiriman",
-            "Ketepatan Jumlah"
+                "ID Laptop",
+                "Nama Laptop",
+                "Merk",
+                "Harga",
+                "Processor",
+                "RAM",
+                "Storage",
+                "Battery Life",
+                "Performa",
+                "Kategori Harga",
+                "Kategori Penyimpanan",
+                "Kategori Daya Tahan",
+                "Kategori RAM"
         };
-        
+
         tabmode = new DefaultTableModel(null, Baris);
         tabelDataLaptop.setModel(tabmode);
 
-        String sql = "SELECT * FROM data_supplier ORDER BY id_supplier";
-        
-        try{
+        String sql = "SELECT * FROM data_laptop ORDER BY id_laptop";
+
+        try {
             java.sql.Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
-            while(hasil.next()){
-                String a = hasil.getString("id_supplier");
-                String b = hasil.getString("nama_supplier");
-                String c = hasil.getString("email");
-                String d = hasil.getString("no_telp");
-                String e = hasil.getString("alamat");
-                String f = hasil.getString("kualitas");
-                String g = hasil.getString("harga");
-                String h = hasil.getString("layanan");
-                String i = hasil.getString("ketepatan_pengiriman");
-                String j = hasil.getString("ketepatan_jumlah");
-                
-                String[] data={a, b, c, d, e, f, g, h, i, j};
+            while (hasil.next()) {
+                String a = hasil.getString("id_laptop");
+                String b = hasil.getString("nama_laptop");
+                String c = hasil.getString("merk");
+                String d = hasil.getString("harga");
+                String e = hasil.getString("processor");
+                String f = hasil.getString("ram");
+                String g = hasil.getString("storage");
+                String h = hasil.getString("battery_life");
+                String i = hasil.getString("performa");
+                String j = hasil.getString("kategori_harga");
+                String k = hasil.getString("kategori_penyimpanan");
+                String l = hasil.getString("kategori_daya_tahan");
+                String m = hasil.getString("kategori_ram");
+
+                String[] data = { a, b, c, d, e, f, g, h, i, j, k, l, m };
                 tabmode.addRow(data);
             }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     /**
      * Mendapatkan Data dari Tabel
      */
-    private void getDataTabel(){
+    private void getDataTabel() {
         int bar = tabelDataLaptop.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
@@ -88,38 +94,41 @@ public class DataSupplier extends javax.swing.JPanel {
         String h = tabmode.getValueAt(bar, 7).toString();
         String i = tabmode.getValueAt(bar, 8).toString();
         String j = tabmode.getValueAt(bar, 9).toString();
-        
+        String k = tabmode.getValueAt(bar, 10).toString();
+        String l = tabmode.getValueAt(bar, 11).toString();
+        String m = tabmode.getValueAt(bar, 12).toString();
+
         noId = a;
-        dialog.setDataTabel(a, b, c, d, e, f, g, h, i, j);
+        dialog.setDataTabel(a, b, c, d, e, f, g, h, i, j, k, l, m);
     }
-    
-    protected void hapusDataPaket(){
-        if(noId != null){
-            int ok = JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
-            if(ok == 0){
-                String sql = "DELETE FROM data_supplier WHERE id_supplier='"+noId+"'";
-                try{
+
+    protected void hapusDataLaptop() {
+        if (noId != null) {
+            int ok = JOptionPane.showConfirmDialog(null, "hapus", "Konfirmasi Dialog", JOptionPane.YES_NO_OPTION);
+            if (ok == 0) {
+                String sql = "DELETE FROM data_laptop WHERE id_laptop='" + noId + "'";
+                try {
                     PreparedStatement stat = conn.prepareStatement(sql);
                     stat.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Data Berhasil diHapus ");
                     updateDataTabel();
-                    noId=null;
-                }catch(SQLException e){
-                    JOptionPane.showMessageDialog(null,"Data Gagal diHapus " + e);
+                    noId = null;
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Data Gagal diHapus " + e);
                 }
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Pilih data yang ingin dihapus! ");
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         judul = new javax.swing.JLabel();
@@ -144,22 +153,22 @@ public class DataSupplier extends javax.swing.JPanel {
 
         tabelDataLaptop.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tabelDataLaptop.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID Laptop", "Nama Laptop", "Merk", "Bobot Laptop", "Tahun Produksi", "Performa", "Harga", "Penyimpanan", "Ketahanan Baterai", "Ram"
-            }
-        ));
+                new Object[][] {
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null, null, null }
+                },
+                new String[] {
+                        "ID Laptop", "Nama Laptop", "Merk", "Bobot Laptop", "Tahun Produksi", "Performa", "Harga",
+                        "Penyimpanan", "Ketahanan Baterai", "Ram"
+                }));
         tabelDataLaptop.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelDataLaptopMouseClicked(evt);
@@ -204,90 +213,97 @@ public class DataSupplier extends javax.swing.JPanel {
         });
 
         catatan.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        catatan.setText("Catatan : Edit/Hapus data supplier, klik data pada tabel terlebih dahulu");
+        catatan.setText("Catatan : Edit/Hapus data laptop, klik data pada tabel terlebih dahulu");
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tombolTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tombolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(451, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
-            .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(catatan, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(398, Short.MAX_VALUE)))
-        );
+                PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tombolTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tombolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 120,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(451, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PanelLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(catatan, javax.swing.GroupLayout.PREFERRED_SIZE, 449,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(398, Short.MAX_VALUE))));
         PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tombolTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tombolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
-            .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelLayout.createSequentialGroup()
-                    .addGap(265, 265, 265)
-                    .addComponent(catatan)
-                    .addGap(0, 149, Short.MAX_VALUE)))
-        );
+                PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(tombolTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tombolEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 35,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(173, Short.MAX_VALUE))
+                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PanelLayout.createSequentialGroup()
+                                        .addGap(265, 265, 265)
+                                        .addComponent(catatan)
+                                        .addGap(0, 149, Short.MAX_VALUE))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(judul, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
-            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(judul, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+                        .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(judul, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(judul, javax.swing.GroupLayout.PREFERRED_SIZE, 69,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tombolHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolHapusActionPerformed
+    private void tombolHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolHapusActionPerformed
         // TODO add your handling code here:
-        hapusDataPaket();
-    }//GEN-LAST:event_tombolHapusActionPerformed
+        hapusDataLaptop();
+    }// GEN-LAST:event_tombolHapusActionPerformed
 
-    private void tombolEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolEditActionPerformed
+    private void tombolEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolEditActionPerformed
         // TODO add your handling code here:
-        if(noId != null){
-            dialog.show();
+        if (noId != null) {
+            dialog.setVisible(true);
             updateDataTabel();
-            noId=null;
-        }else{
+            noId = null;
+        } else {
             JOptionPane.showMessageDialog(null, "Pilih data yang ingin diubah!");
         }
-    }//GEN-LAST:event_tombolEditActionPerformed
+    }// GEN-LAST:event_tombolEditActionPerformed
 
-    private void tombolTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tombolTambahActionPerformed
+    private void tombolTambahActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolTambahActionPerformed
         // TODO add your handling code here:
-            dialog.kosong();
-            dialog.show();
-            updateDataTabel();  
-            noId=null;
-    }//GEN-LAST:event_tombolTambahActionPerformed
+        dialog.kosong();
+        dialog.setVisible(true);
+        updateDataTabel();
+        noId = null;
+    }// GEN-LAST:event_tombolTambahActionPerformed
 
-    private void tabelDataLaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataLaptopMouseClicked
+    private void tabelDataLaptopMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tabelDataLaptopMouseClicked
         // TODO add your handling code here:
         getDataTabel();
-    }//GEN-LAST:event_tabelDataLaptopMouseClicked
-
+    }// GEN-LAST:event_tabelDataLaptopMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel;

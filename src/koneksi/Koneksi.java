@@ -23,7 +23,7 @@ public class Koneksi {
             System.out.println("Gagal Koneksi ! "+ex);
         }
         
-        String url = "jdbc:mysql://localhost/spk_seleksi_supplier_ahp";
+        String url = "jdbc:mysql://localhost/spk_seleksi_laptop_ahp";
         
         try{
             koneksi = (Connection) DriverManager.getConnection(url,"root","");

@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import koneksi.Koneksi;
@@ -29,7 +28,7 @@ public class Seleksi extends javax.swing.JPanel {
     }
 
     protected void dataTabel() {
-        Object[] Baris = { "Ranking", "Id Supplier", "Nama Supplier", "Hasil Penilaian" };
+        Object[] Baris = { "Ranking", "Id Laptop", "Nama Laptop", "Hasil Penilaian" };
         tabmode = new DefaultTableModel(null, Baris);
         tabelRanking.setModel(tabmode);
 
@@ -40,8 +39,8 @@ public class Seleksi extends javax.swing.JPanel {
             int i = 1;
             while (hasil.next()) {
                 String a = Integer.toString(i);
-                String b = hasil.getString("id_supplier");
-                String c = hasil.getString("nama_supplier");
+                String b = hasil.getString("id_laptop");
+                String c = hasil.getString("nama_laptop");
                 String d = hasil.getString("hasil_penilaian");
 
                 String[] data = { a, b, c, d };
@@ -60,7 +59,8 @@ public class Seleksi extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         judul = new javax.swing.JLabel();
@@ -88,22 +88,21 @@ public class Seleksi extends javax.swing.JPanel {
 
         tabelRanking.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tabelRanking.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Ranking", "ID Laptop", "Nama Laptop", "Hasil Penilaian"
-            }
-        ));
+                new Object[][] {
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null }
+                },
+                new String[] {
+                        "Ranking", "ID Laptop", "Nama Laptop", "Hasil Penilaian"
+                }));
         tabelRanking.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelRankingMouseClicked(evt);
@@ -131,35 +130,33 @@ public class Seleksi extends javax.swing.JPanel {
 
         jLabel4.setText("- Hapus dengan mengklik data tabel yang ingin dihapus ");
 
-        jLabel5.setText("- Ranking diurutkan berdasarkan hasil penilaian terbesar sampai terkecil supplier");
+        jLabel5.setText("- Ranking diurutkan berdasarkan hasil penilaian terbesar sampai terkecil laptop");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                .addContainerGap(99, Short.MAX_VALUE)));
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(0, 30, Short.MAX_VALUE))
-        );
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addGap(0, 30, Short.MAX_VALUE)));
 
         tombolHapus.setBackground(new java.awt.Color(22, 65, 53));
         tombolHapus.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -200,63 +197,80 @@ public class Seleksi extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tombolLihatPerhitunganAHP, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tombolUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tombolTop3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 289, Short.MAX_VALUE)))
-                .addGap(20, 20, 20))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane1)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGap(10, 10, 10)
+                                                                .addComponent(jPanel2,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addComponent(tombolLihatPerhitunganAHP,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(tombolHapus,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 110,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(tombolUpdate,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 97,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(tombolTop3,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 97,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 289, Short.MAX_VALUE)))
+                                .addGap(20, 20, 20)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tombolHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tombolUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tombolLihatPerhitunganAHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tombolTop3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(tombolHapus, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tombolUpdate, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tombolLihatPerhitunganAHP, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tombolTop3, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(judul, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(judul, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(judul, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(judul, javax.swing.GroupLayout.PREFERRED_SIZE, 69,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tombolLihatPerhitunganAHPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolLihatPerhitunganAHPActionPerformed
         // TODO add your handling code here:
         DialogPerhitunganAHP dialog1 = new DialogPerhitunganAHP(null, true);
-        dialog1.show();
+        dialog1.setVisible(true);
     }// GEN-LAST:event_tombolLihatPerhitunganAHPActionPerformed
 
     private void tombolUpdateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolUpdateActionPerformed
@@ -268,7 +282,7 @@ public class Seleksi extends javax.swing.JPanel {
         // TODO add your handling code here:
         int ok = JOptionPane.showConfirmDialog(null, "hapus", "Konfirmasi Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
         if (ok == 0) {
-            String sql = "DELETE FROM seleksi WHERE id_supplier='" + noId + "'";
+            String sql = "DELETE FROM seleksi WHERE id_laptop='" + noId + "'";
             try {
                 PreparedStatement stat = conn.prepareStatement(sql);
 
@@ -290,7 +304,7 @@ public class Seleksi extends javax.swing.JPanel {
 
     private void tombolTop3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tombolTop3ActionPerformed
         // Show only the top 3 rows with the highest 'hasil_penilaian'
-        Object[] Baris = { "Ranking", "Id Supplier", "Nama Supplier", "Hasil Penilaian" };
+        Object[] Baris = { "Ranking", "Id Laptop", "Nama Laptop", "Hasil Penilaian" };
         tabmode = new DefaultTableModel(null, Baris);
         tabelRanking.setModel(tabmode);
 
@@ -301,8 +315,8 @@ public class Seleksi extends javax.swing.JPanel {
             int i = 1;
             while (hasil.next()) {
                 String a = Integer.toString(i);
-                String b = hasil.getString("id_supplier");
-                String c = hasil.getString("nama_supplier");
+                String b = hasil.getString("id_laptop");
+                String c = hasil.getString("nama_laptop");
                 String d = hasil.getString("hasil_penilaian");
                 String[] data = { a, b, c, d };
                 tabmode.addRow(data);

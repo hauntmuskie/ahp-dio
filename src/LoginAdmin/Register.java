@@ -197,7 +197,7 @@ public class Register extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 51, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Seleksi Supplier Pada PT ARJUNA LESTARI UTAMA");
+        jLabel8.setText("Seleksi Laptop Pada PT ARJUNA LESTARI UTAMA");
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/alum.png"))); // NOI18N
 

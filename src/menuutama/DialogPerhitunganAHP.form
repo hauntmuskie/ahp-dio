@@ -1686,7 +1686,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="c0" green="ed" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Pilih Data Supplier"/>
+                        <Property name="text" type="java.lang.String" value="Pilih Data Laptop"/>
                       </Properties>
                     </Component>
                   </SubComponents>
